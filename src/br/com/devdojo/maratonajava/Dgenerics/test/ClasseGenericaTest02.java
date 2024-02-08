@@ -2,12 +2,19 @@ package br.com.devdojo.maratonajava.Dgenerics.test;
 
 import br.com.devdojo.maratonajava.Dgenerics.dominio.Carro;
 import br.com.devdojo.maratonajava.Dgenerics.service.CarroRentavelService;
+import br.com.devdojo.maratonajava.Dgenerics.service.RentalService;
 
-public class ClasseGenericaTest01 {
+import java.util.ArrayList;
+import java.util.List;
+
+public class ClasseGenericaTest02 {
     public static void main(String[] args) {
-        CarroRentavelService carroRentavelService = new CarroRentavelService();
-        Carro carro = carroRentavelService.buscarCarroDisponivel();
-        System.out.println("Alugando o carro por 1 mês ...");
-        carroRentavelService.retornarCarroAlugado(carro);;
+        List<Carro> carrosDisponiveis = new ArrayList<>(List.of(new Carro("BMW"), new Carro("Fiat Uno Com Escada")));
+        RentalService<Carro> rentalService = new RentalService<>(carrosDisponiveis);
+        Carro carro = rentalService.buscarObjetoDisponivel();
+        System.out.println("Usando o carro por um mês...");
+        rentalService.retornarObjetoAlugado(carro);
+
+        System.out.println("----------------------------");
     }
 }

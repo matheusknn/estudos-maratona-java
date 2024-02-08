@@ -1,4 +1,4 @@
-package br.com.devdojo.maratonajava.Dgenerics;
+package br.com.devdojo.maratonajava.Dgenerics.test;
 
 abstract class Animal {
     public abstract void consulta();
